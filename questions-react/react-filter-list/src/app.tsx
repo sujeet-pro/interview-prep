@@ -1,36 +1,21 @@
-import { Recipe, useRecipes } from "./hooks/useRecipes";
-import styles from "./app.module.css";
-import { useDeferredValue, useMemo, useState } from "react";
-import { RecipeDetails } from "./components/recipe.component";
-import { slowSync } from "./utils/slow";
-import { RecipeList } from "./components/recipe-list.component";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Layout } from "./layout";
+import { NotFoundRoute } from "./pages/not-found";
+import { HomeRoute } from "./pages/home";
+import { RecipesRoute, RecipeRoute } from "./pages/recipes";
+
 export default function App() {
-  const recipes = useRecipes();
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
-  const [queryInput, setQueryInput] = useState("");
-  const query = useDeferredValue(queryInput);
-
-  const filteredRecipes = useMemo(() => {
-    const lowerCaseQuery = query.toLowerCase();
-    slowSync();
-    return recipes.filter((recipe) =>
-      recipe.name.toLowerCase().includes(lowerCaseQuery)
-    );
-  }, [query, recipes]);
-
   return (
-    <main className={styles.layout}>
-      <div>
-        <input
-          value={queryInput}
-          onChange={(e) => setQueryInput(e.target.value)}
-          disabled={!recipes.length}
-        />
-        <RecipeList recipes={filteredRecipes} onSelect={setSelectedRecipe} />
-      </div>
-      <div>
-        <RecipeDetails recipe={selectedRecipe} />
-      </div>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeRoute />} />
+          <Route path="recipes" element={<RecipesRoute />}>
+            <Route path=":id" element={<RecipeRoute />} />
+          </Route>
+          <Route path="*" element={<NotFoundRoute />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

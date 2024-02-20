@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 export type RecipeResponse = {
     recipes: Recipe[]
     total: number,
@@ -23,20 +21,4 @@ export type Recipe = {
     rating: number
     reviewCount: number
     mealType: string[]
-}
-
-async function getRecipes(): Promise<Recipe[]> {
-    const res = await fetch('/recipes.json')
-    const data: RecipeResponse = await res.json()
-    return data.recipes
-}
-
-export function useRecipes() {
-    const [recipes, setRecipes] = useState<Recipe[]>([])
-    useEffect(() => {
-        getRecipes().then(res => {
-            setRecipes(res)
-        })
-    }, [])
-    return recipes
 }
