@@ -8,7 +8,7 @@ function generateArrayOfLength(n: number) {
   return arr
 }
 
-const testCases = [{ n: 10 }, { n: 100 }, { n: 1000 }, { n: 10000 }]
+const testCases = [{ n: 10 }, { n: 100 }, { n: 1000 }, { n: 10000 }, { n: 100000 }, { n: 1000000 }]
 describe.each(testCases)(`Benchmarking/Js Functions - Loops - Sum($n items)`, ({ n }) => {
   const items = generateArrayOfLength(n)
   bench(`standard for loop - ${n}`, () => {
