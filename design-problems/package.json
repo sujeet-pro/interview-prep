@@ -1,0 +1,21 @@
+{
+  "name": "interview-prep",
+  "version": "1.0.0",
+  "description": "Interview Preparation Materials for revision / practise",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format": "prettier . --write --ignore-unknown",
+    "dev": "vitest run --watch",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "author": "Sujeet Jaiswal <sujeet.profession@gmail.com> (https://sujeet.pro/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.4",
+    "prettier": "3.3.3",
+    "vitest": "^2.1.4"
+  }
+}
