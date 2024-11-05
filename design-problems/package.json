@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "format": "prettier . --write --ignore-unknown",
+    "benchmark": "vitest bench --run",
     "dev": "vitest run --watch",
     "test": "vitest run",
     "coverage": "vitest run --coverage"
