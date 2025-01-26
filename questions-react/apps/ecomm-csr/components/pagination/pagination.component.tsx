@@ -7,13 +7,7 @@ export type PaginationProps = {
   pageSize?: number
 }
 
-export function Pagination({
-  disabled = false,
-  currentPage = 1,
-  totalPages,
-  onPageChange,
-  pageSize,
-}: PaginationProps) {
+export function Pagination({ disabled = false, currentPage = 1, totalPages, onPageChange, pageSize }: PaginationProps) {
   const isDisabled = disabled || !totalPages
   const renderButton = (page: number) => {
     return (

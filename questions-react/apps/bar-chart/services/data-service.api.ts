@@ -11,17 +11,13 @@ export type BarChartData = {
   bars: ChartData[]
 }
 
-export async function getChartData({
-  signal,
-}: {
-  signal: AbortSignal
-}): Promise<BarChartData> {
+export async function getChartData({ signal }: { signal: AbortSignal }): Promise<BarChartData> {
   try {
-    const res = await fetch('/data.json', { signal })
+    const res = await fetch(`${import.meta.env.BASE_URL}/data/bar-chart-data.json`, { signal })
     if (!res.ok) {
       throw new Error('Data not found')
     }
-    const data: ChartData[] = await res.json() // await getData()
+    const data: ChartData[] = await res.json()
     const ticketSizes = data.map(d => d.ticketCount)
     const upperBound = Math.max(...ticketSizes)
     const lowerBound = Math.min(...ticketSizes)

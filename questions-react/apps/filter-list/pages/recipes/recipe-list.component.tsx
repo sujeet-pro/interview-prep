@@ -14,9 +14,7 @@ function RecipeListImpl({ searchQuery }: RecipeListProps) {
     if (!searchQuery) return recipes
     const lowerCaseQuery = searchQuery.toLowerCase()
     slowSync(250)
-    return recipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(lowerCaseQuery),
-    )
+    return recipes.filter(recipe => recipe.name.toLowerCase().includes(lowerCaseQuery))
   }, [searchQuery, recipes])
   useEffect(() => {
     console.log('recipes changed')

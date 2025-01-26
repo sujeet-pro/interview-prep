@@ -52,9 +52,7 @@ rl.question('Please provide an app name: ', appName => {
   }
   const isValidAppName = /^[a-z]+(-[a-z]+)*$/.test(appName)
   if (!isValidAppName) {
-    console.error(
-      'App name must be in snake case and contain only lowercase alphabets and hyphens.',
-    )
+    console.error('App name must be in snake case and contain only lowercase alphabets and hyphens.')
     process.exit(1)
   }
   createApp(appName)

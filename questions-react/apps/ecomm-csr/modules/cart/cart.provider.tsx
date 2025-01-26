@@ -6,8 +6,7 @@ import { cartContext, CartItems } from './cart.hook'
 
 export function CartProvider({ children }: PropsWithChildren<unknown>) {
   const [cartItems, setCartItemsIternal] = useState<CartItems>(getCartItems)
-  const [broadCastChannel, setBroadCastChannel] =
-    useState<BroadcastChannel | null>(null)
+  const [broadCastChannel, setBroadCastChannel] = useState<BroadcastChannel | null>(null)
 
   const setCartItems = useCallback((newCartItems: CartItems) => {
     setCartItemsIternal(prev => {
@@ -49,10 +48,7 @@ export function CartProvider({ children }: PropsWithChildren<unknown>) {
     }
   }, [])
 
-  const value = useMemo(
-    () => ({ cartItems, setCartItems, updateQuantity }),
-    [cartItems, updateQuantity, setCartItems],
-  )
+  const value = useMemo(() => ({ cartItems, setCartItems, updateQuantity }), [cartItems, updateQuantity, setCartItems])
 
   return <cartContext.Provider value={value}>{children}</cartContext.Provider>
 }

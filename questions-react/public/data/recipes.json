@@ -369,14 +369,7 @@
       "difficulty": "Medium",
       "cuisine": "Pakistani",
       "caloriesPerServing": 550,
-      "tags": [
-        "Biryani",
-        "Chicken",
-        "Main course",
-        "Indian",
-        "Pakistani",
-        "Asian"
-      ],
+      "tags": ["Biryani", "Chicken", "Main course", "Indian", "Pakistani", "Asian"],
       "userId": 39,
       "image": "https://cdn.dummyjson.com/recipe-images/11.webp",
       "rating": 5,
@@ -413,14 +406,7 @@
       "difficulty": "Easy",
       "cuisine": "Pakistani",
       "caloriesPerServing": 420,
-      "tags": [
-        "Chicken",
-        "Karahi",
-        "Main course",
-        "Indian",
-        "Pakistani",
-        "Asian"
-      ],
+      "tags": ["Chicken", "Karahi", "Main course", "Indian", "Pakistani", "Asian"],
       "userId": 6,
       "image": "https://cdn.dummyjson.com/recipe-images/12.webp",
       "rating": 4.8,
@@ -764,14 +750,7 @@
     {
       "id": 22,
       "name": "Mango Lassi",
-      "ingredients": [
-        "Ripe mango, peeled and diced",
-        "Yogurt",
-        "Milk",
-        "Honey",
-        "Cardamom powder",
-        "Ice cubes"
-      ],
+      "ingredients": ["Ripe mango, peeled and diced", "Yogurt", "Milk", "Honey", "Cardamom powder", "Ice cubes"],
       "instructions": [
         "In a blender, combine diced mango, yogurt, milk, honey, and cardamom powder.",
         "Blend until smooth and creamy.",
@@ -893,13 +872,7 @@
     {
       "id": 26,
       "name": "Mexican Street Corn (Elote)",
-      "ingredients": [
-        "Corn on the cob",
-        "Mayonnaise",
-        "Cotija cheese, crumbled",
-        "Chili powder",
-        "Lime wedges"
-      ],
+      "ingredients": ["Corn on the cob", "Mayonnaise", "Cotija cheese, crumbled", "Chili powder", "Lime wedges"],
       "instructions": [
         "Grill or roast corn on the cob until kernels are charred.",
         "Brush each cob with mayonnaise, then sprinkle with crumbled Cotija cheese and chili powder.",
@@ -1026,12 +999,7 @@
     {
       "id": 30,
       "name": "Brazilian Caipirinha",
-      "ingredients": [
-        "Cachaça (Brazilian sugarcane spirit)",
-        "Lime, cut into wedges",
-        "Granulated sugar",
-        "Ice cubes"
-      ],
+      "ingredients": ["Cachaça (Brazilian sugarcane spirit)", "Lime, cut into wedges", "Granulated sugar", "Ice cubes"],
       "instructions": [
         "In a glass, muddle lime wedges with granulated sugar to release the juice.",
         "Fill the glass with ice cubes.",
@@ -1152,13 +1120,7 @@
     {
       "id": 34,
       "name": "Japanese Matcha Green Tea Ice Cream",
-      "ingredients": [
-        "Heavy cream",
-        "Whole milk",
-        "Granulated sugar",
-        "Matcha green tea powder",
-        "Egg yolks"
-      ],
+      "ingredients": ["Heavy cream", "Whole milk", "Granulated sugar", "Matcha green tea powder", "Egg yolks"],
       "instructions": [
         "In a saucepan, heat heavy cream, whole milk, and granulated sugar until it begins to steam.",
         "Whisk in matcha green tea powder until fully combined.",
@@ -1183,12 +1145,7 @@
     {
       "id": 35,
       "name": "Brazilian Chocolate Brigadeiros",
-      "ingredients": [
-        "Sweetened condensed milk",
-        "Cocoa powder",
-        "Unsalted butter",
-        "Chocolate sprinkles"
-      ],
+      "ingredients": ["Sweetened condensed milk", "Cocoa powder", "Unsalted butter", "Chocolate sprinkles"],
       "instructions": [
         "In a saucepan, combine sweetened condensed milk, cocoa powder, and unsalted butter.",
         "Cook over medium heat, stirring constantly, until the mixture thickens and pulls away from the pan.",

@@ -17,9 +17,5 @@ export function RecipesProvider({ children }: PropsWithChildren<unknown>) {
     })
   }, [])
 
-  return (
-    <recipesContext.Provider value={recipes}>
-      {children}
-    </recipesContext.Provider>
-  )
+  return <recipesContext.Provider value={recipes}>{children}</recipesContext.Provider>
 }

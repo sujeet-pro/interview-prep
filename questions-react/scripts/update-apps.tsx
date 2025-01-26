@@ -2,8 +2,9 @@ import * as fs from 'node:fs'
 import { copyTemplatesTo } from './utils/copy-templates'
 import { getApps } from './utils/get-apps'
 import { DIR_APPS, DIR_TEMPLATE } from './utils/constants'
+import { updateHtml } from './utils/render-ejs'
 
-const excludedFiles = ['app.tsx']
+const excludedFiles = ['app.tsx', 'index.ejs']
 
 export function updateApps() {
   if (!fs.existsSync(DIR_APPS)) {
@@ -19,8 +20,10 @@ export function updateApps() {
 
   for (const app of apps) {
     copyTemplatesTo(app, excludedFiles)
+    updateHtml(app)
   }
 
+  updateHtml('main')
   console.log(`All apps updated successfully.`)
 }
 

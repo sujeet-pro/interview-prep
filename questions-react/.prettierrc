@@ -8,6 +8,6 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "endOfLine": "auto",
-  "printWidth": 80,
+  "printWidth": 120,
   "quoteProps": "as-needed"
 }

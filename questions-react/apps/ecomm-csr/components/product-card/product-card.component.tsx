@@ -15,9 +15,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <p className={styles.productDescription}>{product.description}</p>
       <div className={styles.action}>
         {!cartItems[product.id] ? (
-          <button onClick={() => updateQuantity(product.id, 1)}>
-            Add to cart
-          </button>
+          <button onClick={() => updateQuantity(product.id, 1)}>Add to cart</button>
         ) : (
           <>
             <button onClick={() => updateQuantity(product.id, -1)}>-1</button>

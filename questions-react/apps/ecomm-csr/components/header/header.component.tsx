@@ -7,9 +7,5 @@ export function Header() {
   const itemsCount = useMemo(() => {
     return Object.values(cartItems).reduce((a, b) => a + b, 0)
   }, [cartItems])
-  return (
-    <header className={styles.header}>
-      React Fetch API: Cart Count ({itemsCount}){' '}
-    </header>
-  )
+  return <header className={styles.header}>React Fetch API: Cart Count ({itemsCount}) </header>
 }

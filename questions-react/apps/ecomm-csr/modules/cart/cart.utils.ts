@@ -27,10 +27,7 @@ export function getUpdatedCart(
   return cartItems
 }
 
-export function isSameCartItems(
-  cartItem1: CartItems,
-  cartItem2: CartItems,
-): boolean {
+export function isSameCartItems(cartItem1: CartItems, cartItem2: CartItems): boolean {
   const keys1 = Object.keys(cartItem1)
   const keys2 = Object.keys(cartItem2)
   if (keys1.length !== keys2.length) return false

@@ -9,9 +9,7 @@ export function ensureValidAppName(appName: string): void {
     process.exit(1)
   }
   if (!isKebabCase(appName)) {
-    console.error(
-      'App name must be in Kebab case and contain only lowercase alphabets and hyphens.',
-    )
+    console.error('App name must be in Kebab case and contain only lowercase alphabets and hyphens.')
     process.exit(1)
   }
 }

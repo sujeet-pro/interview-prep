@@ -22,10 +22,7 @@ function getCurrentPage() {
 
 export function App() {
   const [currentPage, setCurrentPage] = useState(getCurrentPage)
-  const [productsResponse] = useProducts(
-    (currentPage - 1) * PAGE_SIZE,
-    PAGE_SIZE,
-  )
+  const [productsResponse] = useProducts((currentPage - 1) * PAGE_SIZE, PAGE_SIZE)
   return (
     <CartProvider>
       <Header />
@@ -34,8 +31,7 @@ export function App() {
         <div>
           {productsResponse ? (
             <>
-              Total: {productsResponse.total} | Limit: {productsResponse.limit}{' '}
-              | Skip: {productsResponse.skip}
+              Total: {productsResponse.total} | Limit: {productsResponse.limit} | Skip: {productsResponse.skip}
             </>
           ) : (
             <>Loading...</>
@@ -49,11 +45,7 @@ export function App() {
         />
       </section>
       <main>
-        <Grid>
-          {productsResponse?.products?.map(product => (
-            <ProductCard product={product} key={product.id} />
-          ))}
-        </Grid>
+        <Grid>{productsResponse?.products?.map(product => <ProductCard product={product} key={product.id} />)}</Grid>
       </main>
       <Footer />
     </CartProvider>
