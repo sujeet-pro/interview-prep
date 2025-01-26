@@ -8,24 +8,48 @@ function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
   return (
     <section>
       <h2 className="text-3xl font-bold mb-4">{recipe.name}</h2>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <img width={200} height={200} src={recipe.image} />
-        <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grow">
-          <li>prepTimeMinutes: {recipe.prepTimeMinutes}</li>
-          <li>cookTimeMinutes: {recipe.cookTimeMinutes}</li>
-          <li>servings: {recipe.servings}</li>
-          <li>difficulty: {recipe.difficulty}</li>
-          <li>cuisine: {recipe.cuisine}</li>
-          <li>caloriesPerServing: {recipe.caloriesPerServing}</li>
-          <li>rating: {recipe.rating}</li>
-          <li>reviewCount: {recipe.reviewCount}</li>
-          <li>
-            Meal Type:{' '}
-            {recipe.mealType.map(type => (
-              <span>{type}</span>
+      <div className="flex flex-col md:flex-row gap-4 items-start">
+        <img className="w-full md:w-1/2 lg:w-2/5 aspect-square" src={recipe.image} alt={`${recipe.name} image`} />
+        <div className="flex-grow">
+          <ul className="grid grid-cols-1 lg:grid-cols-2 ">
+            <li>
+              <strong>Preparation Time:</strong> {recipe.prepTimeMinutes} minutes
+            </li>
+            <li>
+              <strong>Cooking Time:</strong> {recipe.cookTimeMinutes} minutes
+            </li>
+            <li>
+              <strong>Servings:</strong> {recipe.servings}
+            </li>
+            <li>
+              <strong>Difficulty:</strong> {recipe.difficulty}
+            </li>
+            <li>
+              <strong>Cuisine:</strong> {recipe.cuisine}
+            </li>
+            <li>
+              <strong>Calories per Serving:</strong> {recipe.caloriesPerServing}
+            </li>
+            <li>
+              <strong>Rating:</strong> {recipe.rating} / 5
+            </li>
+            <li>
+              <strong>Reviews:</strong> {recipe.reviewCount}
+            </li>
+            <li>
+              <strong>Meal Type:</strong> {recipe.mealType.join(', ')}
+            </li>
+          </ul>
+          <hr className="my-4" />
+          <h3 className="text-lg font-bold mb-2">Ingredients</h3>
+          <ul className="list-disc list-inside pl-5 space-y-1 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 ">
+            {recipe.ingredients.map(ingredient => (
+              <li key={ingredient} className="text-gray-700">
+                {ingredient}
+              </li>
             ))}
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
 
       <ul className="flex flex-row gap-3 my-4">
@@ -35,18 +59,14 @@ function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
           </li>
         ))}
       </ul>
+
       <hr className="my-4" />
-      <h3 className="text-lg font-bold	">Ingredients</h3>
-      <ul className="list-disc">
-        {recipe.ingredients.map(ingredient => (
-          <li key={ingredient}>{ingredient}</li>
-        ))}
-      </ul>
-      <hr className="my-4" />
-      <h3 className="text-lg font-bold	">Instructions</h3>
-      <ol className="list-decimal">
+      <h3 className="text-lg font-bold mb-2">Instructions</h3>
+      <ol className="list-decimal list-inside pl-5 space-y-1">
         {recipe.instructions.map(instruction => (
-          <li key={instruction}>{instruction}</li>
+          <li key={instruction} className="text-gray-700">
+            {instruction}
+          </li>
         ))}
       </ol>
     </section>

@@ -24,7 +24,7 @@ function RecipeListImpl({ searchQuery }: RecipeListProps) {
     <ul>
       {filteredRecipes.map(recipe => (
         <li key={recipe.id}>
-          <Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link>
+          <Link to={`/${recipe.id}`}>{recipe.name}</Link>
         </li>
       ))}
     </ul>

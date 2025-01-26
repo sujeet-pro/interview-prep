@@ -3,7 +3,7 @@ import { Recipe, RecipeResponse } from './recipes.types'
 import { recipesContext } from './recipe.context'
 
 async function getRecipes(): Promise<Recipe[]> {
-  const res = await fetch('/recipes.json')
+  const res = await fetch(`${import.meta.env.BASE_URL}data/recipes.json`)
   const data: RecipeResponse = await res.json()
   return data.recipes
 }
