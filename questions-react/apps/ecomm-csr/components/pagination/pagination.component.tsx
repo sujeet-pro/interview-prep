@@ -1,4 +1,4 @@
-import styles from './pagination.module.css'
+import clsx from 'clsx'
 export type PaginationProps = {
   currentPage?: number
   totalPages: number | undefined | null
@@ -12,6 +12,10 @@ export function Pagination({ disabled = false, currentPage = 1, totalPages, onPa
   const renderButton = (page: number) => {
     return (
       <button
+        className={clsx([
+          `px-4 py-2 mx-1 border rounded`,
+          `${isDisabled || page === currentPage ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-700'}`,
+        ])}
         disabled={isDisabled || page === currentPage}
         onClick={() => onPageChange(page)}
         title={pageSize ? `Skip: ${pageSize * (page - 1)}` : undefined}
@@ -22,7 +26,7 @@ export function Pagination({ disabled = false, currentPage = 1, totalPages, onPa
   }
   if (!totalPages) return null
   return (
-    <div className={styles.pagination}>
+    <div>
       {currentPage >= 3 ? (
         <>
           {renderButton(1)}

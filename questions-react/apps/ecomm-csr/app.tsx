@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Footer } from './components/footer'
 import { Grid } from './components/grid/grid.component'
 import { Header } from './components/header'
 import { Pagination } from './components/pagination'
@@ -26,17 +25,8 @@ export function App() {
   return (
     <CartProvider>
       <Header />
-      <h1>Products</h1>
-      <section className="status">
-        <div>
-          {productsResponse ? (
-            <>
-              Total: {productsResponse.total} | Limit: {productsResponse.limit} | Skip: {productsResponse.skip}
-            </>
-          ) : (
-            <>Loading...</>
-          )}
-        </div>
+      <section className="my-2 p-2 flex justify-between items-center">
+        <h2 className="text-xl">Products {productsResponse ? `(${productsResponse?.total})` : null}</h2>
         <Pagination
           currentPage={currentPage}
           totalPages={Math.ceil((productsResponse?.total || 0) / PAGE_SIZE)}
@@ -47,7 +37,6 @@ export function App() {
       <main>
         <Grid>{productsResponse?.products?.map(product => <ProductCard product={product} key={product.id} />)}</Grid>
       </main>
-      <Footer />
     </CartProvider>
   )
 }

@@ -18,7 +18,7 @@ export function CartProvider({ children }: PropsWithChildren<unknown>) {
   const updateQuantity = useCallback(
     (productId: string | number, quantity: number) => {
       const newCartItems = getUpdatedCart(cartItems, productId, quantity)
-      console.log(`newCartItems`, newCartItems)
+      // console.log(`newCartItems`, newCartItems)
       setCartItems(newCartItems)
     },
     [cartItems, setCartItems],
@@ -27,7 +27,7 @@ export function CartProvider({ children }: PropsWithChildren<unknown>) {
   useEffect(() => {
     saveCartItems(cartItems)
     if (broadCastChannel && cartItems) {
-      console.log(`BroadCasted`)
+      // console.log(`BroadCasted`)
       broadCastChannel.postMessage(cartItems)
     }
   }, [cartItems, broadCastChannel])
@@ -36,7 +36,7 @@ export function CartProvider({ children }: PropsWithChildren<unknown>) {
     try {
       const channel = new BroadcastChannel('cartItems_channel')
       channel.onmessage = e => {
-        console.log(`BroadCast event`, e)
+        // console.log(`BroadCast event`, e)
         setCartItems(e.data)
       }
       setBroadCastChannel(channel)
