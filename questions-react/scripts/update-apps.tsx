@@ -1,28 +1,26 @@
 import * as fs from 'node:fs'
-import * as path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { copyTemplatesTo } from './utils/copy-templates'
+import { getApps } from './utils/get-apps'
+import { DIR_APPS, DIR_TEMPLATE } from './utils/constants'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const excludedFiles = ['app.tsx']
 
 export function updateApps() {
-  const appsDir = path.join(__dirname, '../apps')
-
-  if (!fs.existsSync(appsDir)) {
-    console.error(`Apps directory ${appsDir} does not exist.`)
+  if (!fs.existsSync(DIR_APPS)) {
+    console.error(`Apps directory ${DIR_APPS} does not exist.`)
+    return
+  }
+  if (!fs.existsSync(DIR_TEMPLATE)) {
+    console.error(`Template directory ${DIR_TEMPLATE} does not exist.`)
     return
   }
 
-  const apps = fs.readdirSync(appsDir, { withFileTypes: true })
+  const apps = getApps()
 
   for (const app of apps) {
-    if (!app.isDirectory()) {
-      // console.error(`App ${app.name} is not a directory.`)
-      return
-    }
-    copyTemplatesTo(app.name, excludedFiles)
+    copyTemplatesTo(app, excludedFiles)
   }
+
   console.log(`All apps updated successfully.`)
 }
 

@@ -16,7 +16,8 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "app:gen": "tsx scripts/generate-new-app.tsx",
-    "app:update": "tsx scripts/update-apps.tsx"
+    "app:update": "tsx scripts/update-apps.tsx",
+    "main:update": "tsx scripts/update-main-html.ts"
   },
   "repository": {
     "type": "git",

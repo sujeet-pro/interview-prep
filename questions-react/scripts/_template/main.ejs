@@ -15,13 +15,9 @@
   </header>
   <main class="container mx-auto my-8 flex-grow">
     <ul class="space-y-4">
-      
-        <li><a href="/interview-questions-react/apps/bar-chart/" class="text-blue-500 hover:underline">Bar Chart</a></li>
-      
-        <li><a href="/interview-questions-react/apps/ecomm-csr/" class="text-blue-500 hover:underline">Ecomm Csr</a></li>
-      
-        <li><a href="/interview-questions-react/apps/filter-list/" class="text-blue-500 hover:underline">Filter List</a></li>
-      
+      <% apps.forEach(function(app) { %>
+        <li><a href="<%= app.href %>" class="text-blue-500 hover:underline"><%= app.name %></a></li>
+      <% }); %>
     </ul>
   </main>
   <footer class="bg-gray-800 text-white p-4 mt-8">

@@ -1,14 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import ejs from 'ejs'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const templateDir = path.join(__dirname, '../_template')
-const appsDir = path.join(__dirname, '../../apps')
+import { DIR_TEMPLATE, DIR_APPS } from './constants'
+import { ensureValidAppName, toTitleCase } from './file-names.utils'
 
 export function copyTemplatesTo(appName: string, excludedFiles: string[] = []) {
-  const files = fs.readdirSync(templateDir, { withFileTypes: true })
+  ensureValidAppName(appName)
+  const files = fs.readdirSync(DIR_TEMPLATE, { withFileTypes: true })
   for (const file of files) {
     if (
       file.isDirectory() ||
@@ -17,28 +15,20 @@ export function copyTemplatesTo(appName: string, excludedFiles: string[] = []) {
     ) {
       continue
     }
-    const srcFile = path.join(templateDir, file.name)
-    const destFile = path.join(appsDir, appName, file.name)
+    const srcFile = path.join(DIR_TEMPLATE, file.name)
+    const destFile = path.join(DIR_APPS, appName, file.name)
     fs.copyFileSync(srcFile, destFile)
   }
   // Handle EJS files separately
   ejs.renderFile(
-    path.join(templateDir, 'index.ejs'),
+    path.join(DIR_TEMPLATE, 'index.ejs'),
     { appname: toTitleCase(appName) },
     (err, str) => {
       if (err) {
         console.error(err)
         return
       }
-      fs.writeFileSync(path.join(appsDir, appName, 'index.html'), str)
+      fs.writeFileSync(path.join(DIR_APPS, appName, 'index.html'), str)
     },
   )
-}
-
-export function toTitleCase(str: string): string {
-  return str
-    .toLowerCase()
-    .split(/[_-\s]/) // Split by underscores, dash or spaces
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
 }
