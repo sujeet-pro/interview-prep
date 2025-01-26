@@ -1,2 +1,5 @@
 # interview-evaluation-questions
-Interview Questions for Evaluations
+
+## About the setup
+
+Multi App Setup with vite

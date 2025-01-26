@@ -1,0 +1,31 @@
+{
+  "name": "ui-interview-evaluation-questions",
+  "version": "1.0.0",
+  "description": "Interview Questions for Evaluations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeet-pro/ui-interview-evaluation-questions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujeet-pro/ui-interview-evaluation-questions/issues"
+  },
+  "homepage": "https://github.com/sujeet-pro/ui-interview-evaluation-questions#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "jsdom": "^26.0.0",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.4"
+  }
+}
