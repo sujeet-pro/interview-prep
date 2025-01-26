@@ -1,13 +1,13 @@
-import { FC } from "react";
-import { Product } from "../../types/product";
-import styles from "./product-card.module.css";
-import { useCart } from "../../modules/cart";
+import { FC } from 'react'
+import { Product } from '../../types/product'
+import styles from './product-card.module.css'
+import { useCart } from '../../modules/cart'
 export type ProductCardProps = {
-  product: Product;
-};
+  product: Product
+}
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { updateQuantity, cartItems } = useCart();
+  const { updateQuantity, cartItems } = useCart()
   return (
     <div className={styles.product}>
       <h3 className={styles.productTitle}>{product.title}</h3>
@@ -27,5 +27,5 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

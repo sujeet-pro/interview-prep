@@ -1,9 +1,9 @@
-import { memo } from "react";
-import { Recipe } from "./recipes.types";
+import { memo } from 'react'
+import { Recipe } from './recipes.types'
 
 export type RecipeDetailsProps = {
-  recipe: Recipe;
-};
+  recipe: Recipe
+}
 function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
   return (
     <section>
@@ -20,8 +20,8 @@ function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
           <li>rating: {recipe.rating}</li>
           <li>reviewCount: {recipe.reviewCount}</li>
           <li>
-            Meal Type:{" "}
-            {recipe.mealType.map((type) => (
+            Meal Type:{' '}
+            {recipe.mealType.map(type => (
               <span>{type}</span>
             ))}
           </li>
@@ -29,7 +29,7 @@ function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
       </div>
 
       <ul className="flex flex-row gap-3 my-4">
-        {recipe.tags.map((tag) => (
+        {recipe.tags.map(tag => (
           <li key={tag} className="bg-gray-200 rounded-full py-1 px-3">
             {tag}
           </li>
@@ -38,19 +38,19 @@ function RecipeDetailsImpl({ recipe }: RecipeDetailsProps) {
       <hr className="my-4" />
       <h3 className="text-lg font-bold	">Ingredients</h3>
       <ul className="list-disc">
-        {recipe.ingredients.map((ingredient) => (
+        {recipe.ingredients.map(ingredient => (
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
       <hr className="my-4" />
       <h3 className="text-lg font-bold	">Instructions</h3>
       <ol className="list-decimal">
-        {recipe.instructions.map((instruction) => (
+        {recipe.instructions.map(instruction => (
           <li key={instruction}>{instruction}</li>
         ))}
       </ol>
     </section>
-  );
+  )
 }
 
-export const RecipeDetails = memo(RecipeDetailsImpl);
+export const RecipeDetails = memo(RecipeDetailsImpl)

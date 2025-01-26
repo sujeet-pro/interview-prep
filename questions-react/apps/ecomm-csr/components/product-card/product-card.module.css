@@ -1,25 +1,25 @@
 .product {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    gap: 0.5rem;
-    grid-template-areas:  'image' 'action' 'title' 'description' ;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.5rem;
+  grid-template-areas: 'image' 'action' 'title' 'description';
 }
 .productTitle {
-    grid-area: title;
-    margin: 0;
-    padding: 0.25rem 0;
+  grid-area: title;
+  margin: 0;
+  padding: 0.25rem 0;
 }
 .productImg {
-    grid-area: image;
-    max-width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
+  grid-area: image;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .productDescription {
-    grid-area: description;
-    margin: 0;
+  grid-area: description;
+  margin: 0;
 }
 .action {
-    grid-area: action;
+  grid-area: action;
 }

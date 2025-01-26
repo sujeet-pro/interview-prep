@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { RecipeList } from "./recipe-list.component";
-import { Outlet } from "react-router";
-import { RecipesProvider } from "./recipe.provider";
-import { useDebounce } from "../../hooks/debounce.hook";
+import { useState } from 'react'
+import { RecipeList } from './recipe-list.component'
+import { Outlet } from 'react-router'
+import { RecipesProvider } from './recipe.provider'
+import { useDebounce } from '../../hooks/debounce.hook'
 
 export function RecipesRoute() {
-  const [queryInput, setQueryInput] = useState("");
+  const [queryInput, setQueryInput] = useState('')
   // const searchQuery = useDeferredValue(queryInput);
-  const debouncedQuery = useDebounce(queryInput, 500);
+  const debouncedQuery = useDebounce(queryInput, 500)
 
   return (
     <RecipesProvider>
@@ -17,7 +17,7 @@ export function RecipesRoute() {
             placeholder="Search"
             type="search"
             value={queryInput}
-            onChange={(e) => setQueryInput(e.target.value)}
+            onChange={e => setQueryInput(e.target.value)}
             className="block border border-gray-500 w-full p-2"
           />
           <RecipeList searchQuery={debouncedQuery} />
@@ -27,5 +27,5 @@ export function RecipesRoute() {
         </div>
       </section>
     </RecipesProvider>
-  );
+  )
 }

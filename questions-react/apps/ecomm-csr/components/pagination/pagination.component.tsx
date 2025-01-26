@@ -1,11 +1,11 @@
-import styles from "./pagination.module.css";
+import styles from './pagination.module.css'
 export type PaginationProps = {
-  currentPage?: number;
-  totalPages: number | undefined | null;
-  onPageChange: (pageNumber: number) => void;
-  disabled?: boolean;
-  pageSize?: number;
-};
+  currentPage?: number
+  totalPages: number | undefined | null
+  onPageChange: (pageNumber: number) => void
+  disabled?: boolean
+  pageSize?: number
+}
 
 export function Pagination({
   disabled = false,
@@ -14,7 +14,7 @@ export function Pagination({
   onPageChange,
   pageSize,
 }: PaginationProps) {
-  const isDisabled = disabled || !totalPages;
+  const isDisabled = disabled || !totalPages
   const renderButton = (page: number) => {
     return (
       <button
@@ -24,9 +24,9 @@ export function Pagination({
       >
         {page}
       </button>
-    );
-  };
-  if (!totalPages) return null;
+    )
+  }
+  if (!totalPages) return null
   return (
     <div className={styles.pagination}>
       {currentPage >= 3 ? (
@@ -45,5 +45,5 @@ export function Pagination({
         </>
       ) : null}
     </div>
-  );
+  )
 }

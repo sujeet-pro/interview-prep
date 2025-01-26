@@ -15,8 +15,8 @@
     "format:check": "npx prettier . --check",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "generate": "tsx scripts/generate-new-app.tsx",
-    "update:setup": "tsx scripts/update-apps.tsx"
+    "app:gen": "tsx scripts/generate-new-app.tsx",
+    "app:update": "tsx scripts/update-apps.tsx"
   },
   "repository": {
     "type": "git",

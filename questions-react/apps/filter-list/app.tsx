@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import { Layout } from "./layout";
-import { NotFoundRoute } from "./pages/not-found";
-import { HomeRoute } from "./pages/home";
-import { RecipesRoute, RecipeRoute } from "./pages/recipes";
+import { BrowserRouter, Route, Routes } from 'react-router'
+import { Layout } from './layout'
+import { NotFoundRoute } from './pages/not-found'
+import { HomeRoute } from './pages/home'
+import { RecipesRoute, RecipeRoute } from './pages/recipes'
 
-export default function App() {
+export function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,5 +17,5 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
+  )
 }

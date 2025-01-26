@@ -1,4 +1,4 @@
-import { createContext } from "react";
-import { Recipe } from "./recipes.types";
+import { createContext } from 'react'
+import { Recipe } from './recipes.types'
 
-export const recipesContext = createContext<Recipe[]>([]);
+export const recipesContext = createContext<Recipe[]>([])
