@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RecipeList } from "./recipe-list.component";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import { RecipesProvider } from "./recipe.provider";
 import { useDebounce } from "../../hooks/debounce.hook";
 

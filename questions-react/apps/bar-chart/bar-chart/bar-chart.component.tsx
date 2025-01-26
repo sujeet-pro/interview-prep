@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import type { BarChartData, ChartData } from "../../services/data-service.api";
+import type { BarChartData, ChartData } from "../services/data-service.api";
 import styles from "./bar-chart.module.css";
 
 type OrderType = "relevance" | "asc" | "desc";

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { useRecipe } from "./recipes.hooks";
 import { RecipeDetails } from "./recipe-details.component";
 

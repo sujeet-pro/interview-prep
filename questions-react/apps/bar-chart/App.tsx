@@ -1,4 +1,3 @@
-import "./App.css";
 import { useChartData } from "./hooks/chart-data.hook";
 import { BarChart } from "./bar-chart/bar-chart.component";
 

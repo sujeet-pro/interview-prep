@@ -1,7 +1,7 @@
 import { memo, useEffect, useMemo } from "react";
 import { useRecipes } from "./recipes.hooks";
 import { slowSync } from "../../utils/slow";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 export type RecipeListProps = {
   searchQuery?: string | null | undefined;
