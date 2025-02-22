@@ -4,7 +4,7 @@ import { getApps } from './utils/get-apps'
 import { DIR_APPS, DIR_TEMPLATE } from './utils/constants'
 import { updateHtml } from './utils/render-ejs'
 
-const excludedFiles = ['app.tsx', 'index.ejs', 'index.css']
+const excludedFiles = ['index.ejs', 'app/app.css', 'app/app.tsx']
 
 export function updateApps() {
   if (!fs.existsSync(DIR_APPS)) {

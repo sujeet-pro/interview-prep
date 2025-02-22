@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@/shared/*": ["./shared/*"]
+    }
   },
-  "include": ["apps", "src", "scripts/_template"]
+  "include": ["apps", "src", "shared", "scripts/_template"]
 }

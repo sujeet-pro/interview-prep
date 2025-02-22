@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
 import { copyTemplatesTo } from './utils/copy-templates'
 import { updateHtml } from './utils/render-ejs'
+import { validateAppName } from './utils/file-names.utils'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -31,22 +32,45 @@ export function createApp(name: string) {
   console.log(`App ${name} created successfully.`)
 }
 
-// Example usage
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
+async function getAppName(): Promise<string> {
+  // Check for command line argument
+  const argAppName = process.argv[2]
+  if (argAppName) {
+    try {
+      validateAppName(argAppName)
+      return argAppName
+    } catch (error) {
+      console.error(error)
+      process.exit(1)
+    }
+  }
 
-rl.question('Please provide an app name: ', appName => {
-  if (!appName) {
-    console.error('App name cannot be empty.')
-    process.exit(1)
-  }
-  const isValidAppName = /^[a-z]+(-[a-z]+)*$/.test(appName)
-  if (!isValidAppName) {
-    console.error('App name must be in snake case and contain only lowercase alphabets and hyphens.')
-    process.exit(1)
-  }
-  createApp(appName)
-  rl.close()
+  // If no valid argument provided, prompt interactively
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+
+  return new Promise((resolve) => {
+    rl.question('Please provide an app name: ', (appName) => {
+      rl.close()
+      try {
+        validateAppName(appName)
+        resolve(appName)
+      } catch (error) {
+        console.error(error)
+        process.exit(1)
+      }
+    })
+  })
+}
+
+async function main() {
+  const appName = await getAppName()
+  await createApp(appName)
+}
+
+main().catch((error) => {
+  console.error('Failed to create app:', error)
+  process.exit(1)
 })

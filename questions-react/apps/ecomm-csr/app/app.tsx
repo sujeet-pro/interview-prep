@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { Grid } from './components/grid/grid.component'
-import { Header } from './components/header'
-import { Pagination } from './components/pagination'
-import { ProductCard } from './components/product-card/product-card.component'
-import { useProducts } from './useProducts/basic-fetch'
-import { CartProvider } from './modules/cart'
-
+import { Grid } from '../components/grid/grid.component'
+import { Header } from '../components/header'
+import { Pagination } from '../components/pagination'
+import { ProductCard } from '../components/product-card/product-card.component'
+import { useProducts } from '../useProducts/basic-fetch'
+import { CartProvider } from '../modules/cart'
+import './app.css'
 const PAGE_SIZE = 12
 
 function getCurrentPage() {

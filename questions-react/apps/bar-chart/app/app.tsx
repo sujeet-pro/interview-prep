@@ -1,5 +1,6 @@
-import { useChartData } from './hooks/chart-data.hook'
-import { BarChart } from './components/bar-chart/bar-chart.component'
+import { useChartData } from '../hooks/chart-data.hook'
+import { BarChart } from '../components/bar-chart/bar-chart.component'
+import './app.css'
 
 export function App() {
   const { data, inProgress, error } = useChartData()
