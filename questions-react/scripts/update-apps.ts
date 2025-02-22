@@ -22,8 +22,6 @@ export function updateApps() {
     copyTemplatesTo(app, excludedFiles)
     updateHtml(app)
   }
-
-  updateHtml('main')
   console.log(`All apps updated successfully.`)
 }
 

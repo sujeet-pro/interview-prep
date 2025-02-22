@@ -27,7 +27,6 @@ export function createApp(name: string) {
   fs.mkdirSync(newAppDir)
   copyTemplatesTo(name, ['index.ejs'])
   updateHtml(name)
-  updateHtml('main') // index.html
 
   console.log(`App ${name} created successfully.`)
 }
@@ -48,11 +47,11 @@ async function getAppName(): Promise<string> {
   // If no valid argument provided, prompt interactively
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   })
 
-  return new Promise((resolve) => {
-    rl.question('Please provide an app name: ', (appName) => {
+  return new Promise(resolve => {
+    rl.question('Please provide an app name: ', appName => {
       rl.close()
       try {
         validateAppName(appName)
@@ -70,7 +69,7 @@ async function main() {
   await createApp(appName)
 }
 
-main().catch((error) => {
+main().catch(error => {
   console.error('Failed to create app:', error)
   process.exit(1)
 })

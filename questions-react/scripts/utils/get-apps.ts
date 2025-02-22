@@ -10,7 +10,13 @@ export function getApps(): string[] {
   try {
     const apps = fs.readdirSync(DIR_APPS, { withFileTypes: true })
     return apps
-      .filter(app => app.isDirectory())
+      .filter(app => {
+        if (!app.isDirectory()) return false
+        // Check if index.html exists in the app directory
+        // const indexPath = `${DIR_APPS}/${app.name}/index.html`
+        // return fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()
+        return true
+      })
       .map(app => app.name)
       .sort() // Sort alphabetically for consistent ordering
   } catch (error) {

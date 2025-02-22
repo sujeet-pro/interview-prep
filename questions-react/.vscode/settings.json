@@ -6,5 +6,8 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "[ejs]": {
+    "editor.defaultFormatter": "j69.ejs-beautify"
   }
 }
