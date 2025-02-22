@@ -2,9 +2,16 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import * as readline from 'node:readline'
 
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
+import { copyTemplatesTo } from './utils/copy-templates'
+import { updateHtml } from './utils/render-ejs'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 export function createApp(name: string) {
   const appsDir = path.join(__dirname, '../apps')
-  const templateDir = path.join(__dirname, '../_template')
   const newAppDir = path.join(appsDir, name)
 
   if (!fs.existsSync(appsDir)) {
@@ -17,24 +24,9 @@ export function createApp(name: string) {
   }
 
   fs.mkdirSync(newAppDir)
-
-  fs.readdir(templateDir, (err, files) => {
-    if (err) {
-      console.error(`Error reading template directory: ${err}`)
-      return
-    }
-
-    files.forEach(file => {
-      const srcFile = path.join(templateDir, file)
-      const destFile = path.join(newAppDir, file)
-
-      fs.copyFile(srcFile, destFile, err => {
-        if (err) {
-          console.error(`Error copying file ${file}: ${err}`)
-        }
-      })
-    })
-  })
+  copyTemplatesTo(name, ['index.ejs'])
+  updateHtml(name)
+  updateHtml('main') // index.html
 
   console.log(`App ${name} created successfully.`)
 }

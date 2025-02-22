@@ -1,0 +1,18 @@
+/* .details {
+} */
+/* .summary {
+    list-style: none;
+
+}
+.summary::-webkit-details-marker {display: none;} */
+
+.changeSizeBtn {
+  display: none;
+}
+.fileNameRow:hover .changeSizeBtn {
+  display: initial;
+}
+
+ul {
+  margin-left: 1rem;
+}

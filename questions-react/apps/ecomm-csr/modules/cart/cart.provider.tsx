@@ -46,7 +46,7 @@ export function CartProvider({ children }: PropsWithChildren<unknown>) {
     } catch (err) {
       console.error(err)
     }
-  }, [])
+  }, [setCartItems])
 
   const value = useMemo(() => ({ cartItems, setCartItems, updateQuantity }), [cartItems, updateQuantity, setCartItems])
 

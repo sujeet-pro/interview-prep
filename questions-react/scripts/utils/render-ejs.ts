@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { BASE, DIR_APPS, DIR_PROJECT, DIR_TEMPLATE } from './constants'
 import { toTitleCase } from './file-names.utils'
 
-function renderEjs(templateFilePath: string, outputFilePath: string, data: Record<string, any>) {
+function renderEjs(templateFilePath: string, outputFilePath: string, data: Record<string, unknown>) {
   console.log(`Rendering ${templateFilePath} to ${outputFilePath}`)
   const template = readFileSync(templateFilePath, 'utf-8')
   const compiledTemplate = ejs.compile(template, { filename: templateFilePath })

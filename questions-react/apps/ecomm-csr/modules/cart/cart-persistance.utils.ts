@@ -16,6 +16,7 @@ export function saveCartItems(cartItems: CartItems) {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify(cartItems))
   } catch (err) {
+    console.error(err)
     return getCartItems()
   }
 }
