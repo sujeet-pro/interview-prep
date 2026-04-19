@@ -1,0 +1,32 @@
+<!-- Auto Generated, DO NOT UPDATE -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= app.name %>
+  </title>
+  <script>
+    (function () {
+      const currentTheme = sessionStorage.getItem('theme') || 'default';
+      if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })()
+  </script>
+  <script type="application/json" id="build-time-data">
+    <%- JSON.stringify({ app, apps }, null, 2) %>
+  </script>
+</head>
+
+<body>
+  <div id="root">Loading...</div>
+  <script type="module" src="<%= app.folderName!=='main' ? './index.tsx' : './apps/main/index.tsx' %>"></script>
+</body>
+
+</html>

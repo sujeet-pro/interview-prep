@@ -1,0 +1,17 @@
+.product {
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: 'image' 'action' 'title' 'description';
+}
+.productTitle {
+  grid-area: title;
+}
+.productImg {
+  grid-area: image;
+}
+
+.productDescription {
+  grid-area: description;
+}
+.action {
+  grid-area: action;
+}
